@@ -1,0 +1,13 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: auto-deployment
+  labels:
+    app.kubernetes.io/name: auto-deployment
+    app.kubernetes.io/part-of: auto-deployment-project
+    kubernetes.azure.com/generator: devhub
+spec:
+  maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: auto-deployment
